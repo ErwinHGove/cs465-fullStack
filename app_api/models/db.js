@@ -48,7 +48,7 @@ process.on('SIGTERM', () => {
   });
 });
 
-mongoose.connect();
+//mongoose.connect();
 
 require('./travlr');
 

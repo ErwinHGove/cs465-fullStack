@@ -118,7 +118,19 @@ const tripsUpdateTrip = async (req, res) => {
 }
 
 const getUser = (req, res, callback) => {
-    if (req.payload && req.payload.email){
+    if (!req.payload){
+        return res
+            .status(404)
+            .json({"message":"User not found 2"});
+    }
+    else if (!req.payload.email){
+        
+        return res
+            .status(404)
+            .json({"message":"User not found 3"});
+        
+    }
+    else{
         User
             .findOne({email: req.payload.email})
             .exec((err,user) => {
@@ -136,12 +148,8 @@ const getUser = (req, res, callback) => {
                 callback(req, res, user.name);
             });
     }
-    else{
-        return res
-            .status(404)
-            .json({"message":"User not found 2"});
-    }
-};
+}
+
 
 module.exports = {
     tripsList,

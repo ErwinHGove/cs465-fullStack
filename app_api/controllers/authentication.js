@@ -23,7 +23,7 @@ const register = (req, res) => {
             const token = user.generateJwt();
             res
                 .status(200)
-                .json({token});
+                .json({ token });
         }
     })
 };
