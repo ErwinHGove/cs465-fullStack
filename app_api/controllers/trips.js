@@ -118,12 +118,12 @@ const tripsUpdateTrip = async (req, res) => {
 }
 
 const getUser = (req, res, callback) => {
-    if (!req.payload){
+    if (!req.payload.email){
         return res
             .status(404)
             .json({"message":"User not found 2"});
     }
-    else if (!req.payload.email){
+    else if (!req.payload){
         
         return res
             .status(404)
