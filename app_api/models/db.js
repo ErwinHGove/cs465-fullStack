@@ -48,6 +48,8 @@ process.on('SIGTERM', () => {
   });
 });
 
+mongoose.connect();
+
 require('./travlr');
 
 require("./user");
