@@ -49,7 +49,8 @@ const tripsFindByCode = async (req, res) => {
 };
 
 const tripsAddTrip = async (req, res) => {
-    //console.log("tripsAddTrip invoked with:\n" + req.body);
+    
+    console.log(req.body);
     
     getUser(req, res, 
         (req, res) => {
@@ -133,9 +134,10 @@ const getUser = (req, res, callback) => {
         
     }
     else{*/
-    if (req.payload && req.payload.email) {            
+    console.log(req.auth.email)
+    if (req.auth.email) {            
       User
-        .findOne({ email : req.payload.email })         
+        .findOne({ email : req.auth.email })         
         .exec((err, user) => {
           if (!user) {
             return res
